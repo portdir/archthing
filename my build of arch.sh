@@ -7,11 +7,8 @@ sudo systemctl enable NetworkManager
 sudo pacman -Syu
 
 #mounts
-sudo mkdir /dev/mounts
-sudo mkdir /dev/mounts/mount1
-sudo mkdir /dev/mounts/mount2
-sudo mkdir /dev/mounts/mount3
-sudo mkdir /dev/mounts/mount4
+sudo mkdir -p ~/mounts/mount{1,2,3,4,5}
+
 
 #yay
 sudo pacman -S git
@@ -27,7 +24,6 @@ sudo pacman -S flatpak
 flatpak install flathub com.github.tchx84.Flatseal
 
 flatpak install flathub org.libreoffice.LibreOffice
-flatpak install flathub com.github.taiko2k.tauonmb
 flatpak install flathub com.discordapp.Discord
 flatpak install flathub org.videolan.VLC
 flatpak install flathub org.kde.krita
@@ -57,6 +53,7 @@ echo "
 
     alias Ssteal='scdl --original-art --yt-dlp-args '--embed-thumbnail' -l'
     alias Bsteal='bandcamp-dl -r -e --base-dir ./'
+    alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
     # --------------------------------------
 " >> ~/.bashrc
 
@@ -71,7 +68,7 @@ sudo pacman -S btop rocm-smi-lib fastfetch openssh
 sudo pacman -S yt-dlp
 yay -S bandcamp-dl-git # bandcamp-dl
 yay -S soundcloud-dl-git # scdl
-#olther
+# olther
 sudo pacman -S firefox
 # outputs
 sudo pacman -S most figlet
