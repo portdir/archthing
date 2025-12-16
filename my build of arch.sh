@@ -27,6 +27,7 @@ flatpak install flathub org.libreoffice.LibreOffice
 flatpak install flathub com.discordapp.Discord
 flatpak install flathub org.videolan.VLC
 flatpak install flathub org.kde.krita
+flatpak install flathub net.davidotek.pupgui2
 # ====================================
 # update bashrc file 
 echo "
