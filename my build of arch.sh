@@ -1,77 +1,76 @@
+#!/bin/bash
 
-# casts profle updater for arch
+# -------------------------------
+# casts profle updater for arch 
+# v2.5
+# -------------------------------
 cd ~/Desktop/
-
+# network stuff
 sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
-sudo pacman -Syu
 
-#mounts
-sudo mkdir -p ~/mounts/mount{1,2,3,4,5}
+# start install 
+echo "#-------------------"
+echo "hello NM is setup add wifi now"
+echo "did you add wifi? [Y/N] "
+read yesno
+echo "#-------------------"
 
+if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
+  echo "starting"
+  sudo pacman -Syu --noconfirm
+  
+    # apps and tools stuff 
+    sudo pacman -S git firewalld btop rocm-smi-lib fastfetch openssh xdotool firefox most figlet --noconfirm
+    
+    sudo systemctl start firewalld
+    sudo systemctl enable firewalld
+    
+    # mounts
+    sudo mkdir -p /mnt/mount{1,2,3,4,5,6,7}
+    sudo chown -vR $USER:$USER /mnt/mount* 
+    #echo "$USER"
 
-#yay
-sudo pacman -S git
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-yay
-cd ..
-rm -rf yay/
+    # yay
+    #sudo pacman -S git
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    yay
+    cd ..
+    rm -rf yay/
 
-sudo pacman -S flatpak
+    # ====================================
+    # update bashrc file 
+    echo "
+        # --------------------------------------
+        # the things
+        # --------------------------------------
+        # olther
+          alias hello='figlet UWU HELLOWO'
+          alias grep='grep --color=auto'
+          alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+          alias lsa='ls -lsAF'
+          alias aliasup='source ~/.bashrc'
+          alias pacman='sudo pacman'
+          alias yak='xdotool sleep 2 type --delay 10'
+          
+        # funny steal
+          alias Ssteal='scdl --original-art --yt-dlp-args '--embed-thumbnail' -l'
+          alias Bsteal='bandcamp-dl -r -e --base-dir ./'
+          alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
+    
+        # --------------------------------------
+    " >> ~/.bashrc
+    # build 
+    source ~/.bashrc
 
-flatpak install flathub com.github.tchx84.Flatseal
-
-flatpak install flathub org.libreoffice.LibreOffice
-flatpak install flathub com.discordapp.Discord
-flatpak install flathub org.videolan.VLC
-flatpak install flathub org.kde.krita
-flatpak install flathub net.davidotek.pupgui2
-# ====================================
-# update bashrc file 
-echo "
-    # --------------------------------------
-    # the things
-    # -------------------------------------
-    # man colored
-    export LESS_TERMCAP_mb=$'\e[1;32m'
-    export LESS_TERMCAP_md=$'\e[1;32m'
-    export LESS_TERMCAP_me=$'\e[0m'
-    export LESS_TERMCAP_se=$'\e[0m'
-    export LESS_TERMCAP_so=$'\e[01;33m'
-    export LESS_TERMCAP_ue=$'\e[0m'
-    export LESS_TERMCAP_us=$'\e[1;4;31m'
-    export PAGER='most'
-    # --------------------------------------
-    # olther
-    alias hello='figlet UWU HELLOWO'
-    alias grep='grep --color=auto'
-    alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-    alias lsa='ls -lAsF'
-    alias aliasup='source ~/.bashrc'
-    alias pacman='sudo pacman'
-
-    alias Ssteal='scdl --original-art --yt-dlp-args '--embed-thumbnail' -l'
-    alias Bsteal='bandcamp-dl -r -e --base-dir ./'
-    alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
-    # --------------------------------------
-" >> ~/.bashrc
-
-# build 
-source ~/.bashrc
-
-# ====================================
-# installs
-
-# tools
-sudo pacman -S btop rocm-smi-lib fastfetch openssh 
-sudo pacman -S yt-dlp
-yay -S bandcamp-dl-git # bandcamp-dl
-yay -S soundcloud-dl-git # scdl
-# olther
-sudo pacman -S firefox
-# outputs
-sudo pacman -S most figlet
-
+    # ====================================
+    # funny
+    sudo pacman -S yt-dlp
+    yay -S bandcamp-dl-git soundcloud-dl-git
+    
+else
+  echo "stoping"
+fi
 
