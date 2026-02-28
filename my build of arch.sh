@@ -36,7 +36,6 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
-    yay
     cd ..
     rm -rf yay/
 
