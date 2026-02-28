@@ -1,7 +1,7 @@
 #!/bin/bash
 # -------------------------------
 # casts profle updater for arch 
-# v2.7
+# v2.0
 # -------------------------------
 cd ~/Desktop/
 echo "
@@ -65,33 +65,33 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
 # ====================================
 # update bashrc file 
   echo "
-        # things     --------------------------------------
-          alias hello='figlet UWU HELLOWO'
-          alias grep='grep --color=auto'
-          alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-          alias lsa='ls -lsAF'
-          alias aliasup='source ~/.bashrc'
-          alias pacman='sudo pacman'
-          alias yak='xdotool sleep 2 type --delay 10'
-        # olther end --------------------------------------
-   " >> ~/.bashrc
- # build 
+# things     --------------------------------------
+    alias hello='figlet UWU HELLOWO'
+    alias grep='grep --color=auto'
+    alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+    alias lsa='ls -lsAF'
+    alias aliasup='source ~/.bashrc'
+    alias pacman='sudo pacman'
+    alias yak='xdotool sleep 2 type --delay 10'
+# olther end --------------------------------------
+" >> ~/.bashrc
+   # build 
    source ~/.bashrc
-   
- # ====================================
- # funny 
-  if [[ $addfunny =~ ^(Y|y|yes)$ ]]; then
-      echo "# funny     --------------------------------------
-              alias Ssteal='scdl --original-art --yt-dlp-args '--embed-thumbnail' -l'
-              alias Bsteal='bandcamp-dl -r -e --base-dir ./'
-              alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
-            # funny end --------------------------------------
-           " > ~/.bashrc
+    # ====================================
+    # funny 
+    if [[ $addfunny =~ ^(Y|y|yes)$ ]]; then
+      echo "
+# funny     --------------------------------------
+    alias Ssteal='scdl --original-art --yt-dlp-args '--embed-thumbnail' -l'
+    alias Bsteal='bandcamp-dl -r -e --base-dir ./'
+    alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
+# funny end --------------------------------------
+" > ~/.bashrc
       sudo pacman -S yt-dlp
       yay -S bandcamp-dl-git soundcloud-dl-git
-  else
-    echo "no funny"
-  fi
+   else
+     echo "no funny"
+   fi
  # funny end
  # ====================================    
 else
