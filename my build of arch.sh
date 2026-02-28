@@ -13,20 +13,10 @@ thing that happen.
 ------ edit ------
 # ~/.bashrc - thay are CMDs that i use like 'yak' this types out stuff after the cmd like copy and paste
 # adds mounts at /mnt/mount{1,2,3,4,5,6,7}
----- installs ----
-# steam <-[working on]
+---- installers ----
+# flatpack 
 # yay
-# git 
-# firewalld
-# btop + rocm-smi-lib <-[this is for gpu]
-# fastfetch
-# openssh
-# xdotool
-# firefox
-# most + figlet
-# devtools + base-devel + pacman-contrib
-# yt-dlp
-# bandcamp-dl-git + soundcloud-dl-git <-[funny]
+# pacman 
 ------------------
 "
 echo "add the !funny!? [Y/N]" 
@@ -49,6 +39,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   sudo pacman -Syu --noconfirm
 # apps and tools stuff 
   sudo pacman -S git firewalld btop rocm-smi-lib fastfetch openssh xdotool firefox most figlet devtools base-devel pacman-contrib --noconfirm
+  flatpak install flathub com.github.tchx84.Flatseal org.libreoffice.LibreOffice com.github.taiko2k.tauonmb org.videolan.VLC org.kde.krita net.davidotek.pupgui2 
 # start firewall
   sudo systemctl start firewalld
   sudo systemctl enable firewalld
@@ -62,6 +53,8 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   makepkg -si
   cd ..
   rm -rf yay/
+# 
+
 # ====================================
 # update bashrc file 
   echo "
