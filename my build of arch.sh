@@ -23,8 +23,8 @@ thing that happen.
 # openssh
 # xdotool
 # firefox
-# most
-# figlet
+# most + figlet
+# devtools + base-devel + pacman-contrib
 # yt-dlp
 # bandcamp-dl-git + soundcloud-dl-git <-[funny]
 ------------------
@@ -48,7 +48,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
 # start install 
   sudo pacman -Syu --noconfirm
 # apps and tools stuff 
-  sudo pacman -S git firewalld btop rocm-smi-lib fastfetch openssh xdotool firefox most figlet --noconfirm
+  sudo pacman -S git firewalld btop rocm-smi-lib fastfetch openssh xdotool firefox most figlet devtools base-devel pacman-contrib --noconfirm
 # start firewall
   sudo systemctl start firewalld
   sudo systemctl enable firewalld
