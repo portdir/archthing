@@ -2,7 +2,7 @@
 
 ```
 ------------------
-thing that happen.
+things that happen.
 ---- turns on ----
 NetworkManager
 firewalld
