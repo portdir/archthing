@@ -33,27 +33,29 @@ echo "hello NM is setup add wifi now"
 echo "did you add wifi? / are you ready to build? [Y/N]"
 read yesno
 echo "#-------------------"
-
 if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   echo "starting"
 # start install 
   sudo pacman -Syu --noconfirm
 # apps and tools stuff 
   sudo pacman -S git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib --noconfirm
-  # fonts 
+# fonts 
   sudo pacman -S adobe-source-han-sans-jp-fonts --noconfirm
   fc-cache
-  # fonts -
-  
+# flatpak
   flatpak install flathub com.github.tchx84.Flatseal org.libreoffice.LibreOffice com.github.taiko2k.tauonmb org.videolan.VLC org.kde.krita net.davidotek.pupgui2 
-  
 # librewolf-bin
   git clone https://aur.archlinux.org/librewolf-bin.git
   cd librewolf-bin
   makepkg -si
   cd ..
   rm -rf librewolf-bin/
-  
+# blender.git
+  git clone https://projects.blender.org/blender/blender.git
+  cd blender
+  ./build_files/build_environment/install_linux_packages.py --all
+  make update
+  cd ..
 # start firewall
   sudo systemctl start firewalld
   sudo systemctl enable firewalld
