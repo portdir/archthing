@@ -1,7 +1,7 @@
 #!/bin/bash
 # -------------------------------
 # casts profle updater for arch 
-# v2.0
+# v2.4
 # -------------------------------
 cd ~/Desktop/
 echo "
