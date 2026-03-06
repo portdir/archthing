@@ -70,7 +70,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     alias pacman='sudo pacman'
     alias yak='xdotool sleep 2 type --delay 10'
 # olther end --------------------------------------
-" >> ~/.bashrc
+" > ~/.bashrc
    # build 
    source ~/.bashrc
     # ====================================
@@ -82,7 +82,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     alias Bsteal='bandcamp-dl -r -e --base-dir ./'
     alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
 # funny end --------------------------------------
-" > ~/.bashrc
+" >> ~/.bashrc
       sudo pacman -S yt-dlp
       yay -S bandcamp-dl-git soundcloud-dl-git
    else
