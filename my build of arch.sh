@@ -46,11 +46,14 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   # fonts -
   
   flatpak install flathub com.github.tchx84.Flatseal org.libreoffice.LibreOffice com.github.taiko2k.tauonmb org.videolan.VLC org.kde.krita net.davidotek.pupgui2 
+  
+# librewolf-bin
   git clone https://aur.archlinux.org/librewolf-bin.git
   cd librewolf-bin
   makepkg -si
-  cd..
-  rm -rf librewolf/
+  cd ..
+  rm -rf librewolf-bin/
+  
 # start firewall
   sudo systemctl start firewalld
   sudo systemctl enable firewalld
