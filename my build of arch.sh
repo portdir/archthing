@@ -39,13 +39,18 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
 # start install 
   sudo pacman -Syu --noconfirm
 # apps and tools stuff 
-  sudo pacman -S git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool firefox most figlet devtools base-devel pacman-contrib --noconfirm
+  sudo pacman -S git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib --noconfirm
   # fonts 
   sudo pacman -S adobe-source-han-sans-jp-fonts --noconfirm
   fc-cache
   # fonts -
   
   flatpak install flathub com.github.tchx84.Flatseal org.libreoffice.LibreOffice com.github.taiko2k.tauonmb org.videolan.VLC org.kde.krita net.davidotek.pupgui2 
+  git clone https://aur.archlinux.org/librewolf-bin.git
+  cd librewolf-bin
+  makepkg -si
+  cd..
+  rm -rf librewolf/
 # start firewall
   sudo systemctl start firewalld
   sudo systemctl enable firewalld
