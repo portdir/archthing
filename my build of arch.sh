@@ -47,7 +47,8 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
 # librewolf-bin
   git clone https://aur.archlinux.org/librewolf-bin.git
   cd librewolf-bin
-  makepkg -si
+  makepkg -si --skipchecksums --skippgpcheck --noconfirm
+
   cd ..
   rm -rf librewolf-bin/
 # blender.git
@@ -66,7 +67,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
 # yay installl
   git clone https://aur.archlinux.org/yay.git
   cd ~/Desktop/yay
-  makepkg -si
+  makepkg -si 
   cd ..
   rm -rf yay/ 
 # ====================================
