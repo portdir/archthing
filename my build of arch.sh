@@ -70,6 +70,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   makepkg -si 
   cd ..
   rm -rf yay/ 
+  yay -S rar unrar
 # ====================================
 # update bashrc file 
   echo "
