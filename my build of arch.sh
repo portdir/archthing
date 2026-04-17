@@ -38,6 +38,7 @@ echo "#-------------------"
 if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   echo "starting"
 # start install 
+# add color /etc/pacman.conf
   sudo pacman -Syu --noconfirm
   sudo pacman -S reflector --noconfirm
   sudo reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
