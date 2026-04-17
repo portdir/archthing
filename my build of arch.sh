@@ -55,11 +55,11 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   cd ..
   rm -rf librewolf-bin/
 # blender.git
-  git clone https://projects.blender.org/blender/blender.git
-  cd blender
-  ./build_files/build_environment/install_linux_packages.py --all
-  make update
-  cd ..
+#  git clone https://projects.blender.org/blender/blender.git
+#  cd blender
+#   ./build_files/build_environment/install_linux_packages.py --all # this is out of date idk how it woant to builet now 
+#  make update
+#  cd ..
 # start firewall
   sudo systemctl start firewalld
   sudo systemctl enable firewalld
