@@ -1,6 +1,6 @@
 #!/bin/bash
 # -------------------------------
-# casts profle updater for arch 
+# casts / Alice- profle updater for arch 
 # v2.4
 # -------------------------------
 cd ~/Desktop/
@@ -14,6 +14,7 @@ thing that happen.
 # ~/.bashrc - thay are CMDs that i use like 'yak' this types out stuff after the cmd like copy and paste
 # adds mounts at /mnt/mount{1,2,3,4,5,6,7}
 # adds JP fonts
+# makes a new mirrorlist 
 ---- installers ----
 # flatpack 
 # yay
@@ -25,6 +26,7 @@ read addfunny
 echo "! hit any key to keep going to install. !"
 read moveon
 # network stuff
+sudo timedatectl set-timezone America/Los_Angeles # <-- might need to change this. alice if you know a better plz do that
 sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
 # que
@@ -37,6 +39,8 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   echo "starting"
 # start install 
   sudo pacman -Syu --noconfirm
+  sudo pacman -S reflector --noconfirm
+  sudo reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
 # apps and tools stuff 
   sudo pacman -S git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib --noconfirm
 # fonts 
@@ -47,8 +51,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
 # librewolf-bin
   git clone https://aur.archlinux.org/librewolf-bin.git
   cd librewolf-bin
-  makepkg -si --skipchecksums --skippgpcheck --noconfirm
-
+  makepkg -si --skipchecksums --skippgpcheck --noconfirm # its not worth keeping up with the key
   cd ..
   rm -rf librewolf-bin/
 # blender.git
@@ -66,7 +69,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   #echo "$USER"
 # yay installl
   git clone https://aur.archlinux.org/yay.git
-  cd ~/Desktop/yay
+  cd yay
   makepkg -si 
   cd ..
   rm -rf yay/ 
