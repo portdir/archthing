@@ -95,13 +95,12 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     if [[ $addfunny =~ ^(Y|y|yes)$ ]]; then
       echo "
 # funny     --------------------------------------
-    alias Ssteal='scdl --original-art --yt-dlp-args '--embed-thumbnail' -l'
     alias Bsteal='bandcamp-dl -r -e --base-dir ./'
     alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
 # funny end --------------------------------------
 " >> ~/.bashrc
       sudo pacman -S yt-dlp
-      yay -S bandcamp-dl-git soundcloud-dl-git
+      yay -S bandcamp-dl-git
    else
      echo "no funny"
    fi
