@@ -43,7 +43,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   sudo pacman -S reflector --noconfirm
   sudo reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
 # apps and tools stuff 
-  sudo pacman -S git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
+  sudo pacman -S bash-completion git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
 # fonts 
   sudo pacman -S adobe-source-han-sans-jp-fonts --noconfirm
   fc-cache
