@@ -26,6 +26,7 @@ read addfunny
 echo "! hit any key to keep going to install. !"
 read moveon
 # network stuff
+sudo ntpdata 0.pool.ntp.org
 sudo timedatectl set-timezone America/Los_Angeles # <-- might need to change this. alice if you know a better plz do that
 sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
