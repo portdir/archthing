@@ -50,18 +50,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   fc-cache
 # flatpak
   flatpak install flathub com.github.tchx84.Flatseal org.libreoffice.LibreOffice com.github.taiko2k.tauonmb org.videolan.VLC org.kde.krita net.davidotek.pupgui2 net.mkiol.SpeechNote
-# librewolf-bin
-# git clone https://aur.archlinux.org/librewolf-bin.git
-#  cd librewolf-bin
-#  makepkg -si --skipchecksums --skippgpcheck --noconfirm # its not worth keeping up with the key
-#  cd ..
-#  rm -rf librewolf-bin/
-# blender.git
-#  git clone https://projects.blender.org/blender/blender.git
-#  cd blender
-#   ./build_files/build_environment/install_linux_packages.py --all # this is out of date idk how it woant to builet now 
-#  make update
-#  cd ..
+
 # start firewall
   sudo systemctl start firewalld
   sudo systemctl enable firewalld
