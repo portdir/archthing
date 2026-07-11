@@ -49,7 +49,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   sudo pacman -S adobe-source-han-sans-jp-fonts --noconfirm
   fc-cache
 # flatpak
-  flatpak install flathub com.github.tchx84.Flatseal org.libreoffice.LibreOffice com.github.taiko2k.tauonmb org.videolan.VLC org.kde.krita net.davidotek.pupgui2 net.mkiol.SpeechNote
+  flatpak install flathub com.github.tchx84.Flatseal org.libreoffice.LibreOffice com.github.taiko2k.tauonmb org.videolan.VLC org.kde.krita net.davidotek.pupgui2 net.mkiol.SpeechNote org.musicbrainz.Picard
 
 # start firewall
   sudo systemctl start firewalld
