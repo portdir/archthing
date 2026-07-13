@@ -44,7 +44,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   sudo pacman -S reflector --noconfirm
   sudo reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
 # apps and tools stuff 
-  sudo pacman -S bash-completion git ntfsprogs ntfs-3g firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
+  sudo pacman -S bash-completion yt-dlp git ntfsprogs ntfs-3g firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
 # fonts 
   sudo pacman -S adobe-source-han-sans-jp-fonts --noconfirm
   fc-cache
@@ -89,7 +89,6 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
 # funny end --------------------------------------
 " >> ~/.bashrc
-      sudo pacman -S yt-dlp
       yay -S bandcamp-dl-git
    else
      echo "no funny"
