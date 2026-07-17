@@ -32,16 +32,17 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   sudo reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
   
 # apps and tools stuff 
-  sudo pacman -S bash-completion yt-dlp git ntfsprogs ntfs-3g firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
+  sudo pacman -S plasma-meta
+  sudo pacman -S bash-completion nano networkmanager yt-dlp git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
+# file sys stuff
+  sudo pacman -S btrfs-progs dosfstools exfat-utils ntfs-3g nilfs-utils exfatprogs ntfsprogs --noconfirm
 # fonts 
-  sudo pacman -S adobe-source-han-sans-jp-fonts --noconfirm
-  fc-cache
+  sudo pacman -S adobe-source-han-sans-jp-fonts --noconfirm; fc-cache
 # flatpak
   flatpak install flathub com.github.tchx84.Flatseal org.libreoffice.LibreOffice com.github.taiko2k.tauonmb org.videolan.VLC org.kde.krita net.davidotek.pupgui2 net.mkiol.SpeechNote org.musicbrainz.Picard
 
 # start firewall
-  sudo systemctl start firewalld
-  sudo systemctl enable firewalld
+  sudo systemctl start firewalld; sudo systemctl enable firewalld
 # mounts
   sudo mkdir -p /mnt/mount{1,2,3,4,5,6,7}
   sudo chown -vR $USER:$USER /mnt/mount* 
@@ -65,21 +66,18 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     alias pacman='sudo pacman'
     alias yak='xdotool sleep 2 type --delay 10'
 # olther end --------------------------------------
-" > ~/.bashrc
-   # build 
-   source ~/.bashrc
-    # ====================================
-    # funny 
+" > ~/.bashrc; source ~/.bashrc
     if [[ $addfunny =~ ^(Y|y|yes)$ ]]; then
       echo "
 # funny     --------------------------------------
     alias Bsteal='bandcamp-dl -r -e --base-dir ./'
     alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
 # funny end --------------------------------------
-" >> ~/.bashrc
-      yay -S bandcamp-dl-git
+" >> ~/.bashrc; source ~/.bashrc
+     yay -S bandcamp-dl-git
+      
    else
-     echo "no funny"
+     echo "no music tools"
    fi
  # funny end
  # ====================================    
