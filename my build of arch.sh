@@ -6,43 +6,31 @@
 cd ~/Desktop/
 echo "
 ------------------
-thing that happen.
----- turns on ----
-# NetworkManager
-# firewalld
------- edit ------
-# ~/.bashrc - thay are CMDs that i use like 'yak' this types out stuff after the cmd like copy and paste
-# adds mounts at /mnt/mount{1,2,3,4,5,6,7}
-# adds JP fonts
-# makes a new mirrorlist 
----- installers ----
-# flatpack 
-# yay
-# pacman 
+# casts / Alice- profle updater for arch 
+# v2.6
 ------------------
 "
-echo "add the !funny!? [Y/N]" 
+echo "add the music tools [Y/N]" 
 read addfunny 
 echo "! hit any key to keep going to install. !"
 read moveon
 # network stuff
 sudo ntpdata 0.pool.ntp.org
-sudo timedatectl set-timezone America/Los_Angeles # <-- might need to change this. alice if you know a better plz do that
-sudo systemctl start NetworkManager
-sudo systemctl enable NetworkManager
+
 # que
 echo "#-------------------"
 echo "hello NM is setup add wifi now"
 echo "did you add wifi? / are you ready to build? [Y/N]"
 read yesno
 echo "#-------------------"
+
 if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   echo "starting"
 # start install 
-# add color /etc/pacman.conf
   sudo pacman -Syu --noconfirm
   sudo pacman -S reflector --noconfirm
   sudo reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
+  
 # apps and tools stuff 
   sudo pacman -S bash-completion yt-dlp git ntfsprogs ntfs-3g firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
 # fonts 
