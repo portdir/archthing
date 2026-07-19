@@ -32,7 +32,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   sudo reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
   
 # apps and tools stuff 
-  sudo pacman -S plasma-meta
+  sudo pacman -S plasma-meta btrfs-assistant
   sudo pacman -S bash-completion nano networkmanager yt-dlp git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
 # file sys stuff
   sudo pacman -S btrfs-progs dosfstools exfat-utils ntfs-3g nilfs-utils exfatprogs ntfsprogs --noconfirm
