@@ -37,7 +37,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
 # file sys stuff
   sudo pacman -S btrfs-progs dosfstools exfat-utils ntfs-3g nilfs-utils exfatprogs ntfsprogs --noconfirm
 # fonts 
-  sudo pacman -S adobe-source-han-sans-jp-fonts --noconfirm; fc-cache
+  sudo pacman -S adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts --noconfirm; fc-cache
 # flatpak
   flatpak install flathub org.gnome.gThumb net.davidotek.pupgui2 com.github.tchx84.Flatseal org.libreoffice.LibreOffice com.github.taiko2k.tauonmb org.videolan.VLC org.kde.krita net.davidotek.pupgui2 net.mkiol.SpeechNote org.musicbrainz.Picard
 
