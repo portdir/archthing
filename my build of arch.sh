@@ -19,7 +19,7 @@ sudo ntpdata 0.pool.ntp.org
 
 # que
 echo "#-------------------"
-echo "hello NM is setup add wifi now"
+echo "hello setup NM and add wifi now"
 echo "did you add wifi? / are you ready to build? [Y/N]"
 read yesno
 echo "#-------------------"
