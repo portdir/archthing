@@ -35,7 +35,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   sudo pacman -S plasma-meta btrfs-assistant linux-headers --noconfirm
   sudo pacman -S bash-completion nano networkmanager yt-dlp git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
 # file sys stuff
-  sudo pacman -S btrfs-progs dosfstools exfat-utils ntfs-3g nilfs-utils exfatprogs ntfsprogs --noconfirm
+  sudo pacman -S btrfs-progs kdegraphics-thumbnailers dosfstools exfat-utils ntfs-3g nilfs-utils exfatprogs ntfsprogs --noconfirm
 # fonts 
   sudo pacman -S adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts --noconfirm; fc-cache
 # flatpak
