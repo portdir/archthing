@@ -65,6 +65,8 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     alias pacman='sudo pacman'
     alias yak='xdotool sleep 2 type --delay 10'
 # olther end --------------------------------------
+export EDITOR=nano
+export VISUAL=nano
 " > ~/.bashrc; source ~/.bashrc
     if [[ $addfunny =~ ^(Y|y|yes)$ ]]; then
       echo "
