@@ -28,11 +28,12 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   echo "starting"
 # start install 
   sudo pacman -Syu --noconfirm
+  sudo pacman -S --needed base-devel linux-headers --noconfirm
   sudo pacman -S reflector --noconfirm
   sudo reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
   
 # apps and tools stuff 
-  sudo pacman -S plasma-meta btrfs-assistant linux-headers --noconfirm
+  sudo pacman -S plasma-meta btrfs-assistant --noconfirm
   sudo pacman -S bash-completion nano networkmanager yt-dlp git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
 # file sys stuff
   sudo pacman -S btrfs-progs kdegraphics-thumbnailers dosfstools exfat-utils ntfs-3g nilfs-utils exfatprogs ntfsprogs --noconfirm
