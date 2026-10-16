@@ -1,3 +1,4 @@
+
 #!/bin/bash
 # -------------------------------
 # casts / Alice- profle updater for arch 
@@ -64,7 +65,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     alias lsa='ls -lsAF'
     alias aliasup='source ~/.bashrc'
     alias pacman='sudo pacman'
-    alias yak='xdotool sleep 2 type --delay 10'
+    alias yak='~/.yaklinebyline TEXT='
 # olther end --------------------------------------
 export EDITOR=nano
 export VISUAL=nano
@@ -82,7 +83,17 @@ export VISUAL=nano
      echo "no music tools"
    fi
  # funny end
- # ====================================    
+ # ==================================== 
+ 
+echo '
+sleep 2
+echo "$TEXT" | while read -r line; do
+    xdotool type --delay 90 "$line";
+    sleep 1;
+    xdotool key Return;
+done
+' >> ~/.yaklinebyline
+
 else
   echo "stoping"
 fi
