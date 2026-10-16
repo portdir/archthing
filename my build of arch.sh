@@ -65,7 +65,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     alias lsa='ls -lsAF'
     alias aliasup='source ~/.bashrc'
     alias pacman='sudo pacman'
-    alias yak='~/.yaklinebyline TEXT='
+    alias yak='~/.yaklinebyline & export TEXT='
 # olther end --------------------------------------
 export EDITOR=nano
 export VISUAL=nano
