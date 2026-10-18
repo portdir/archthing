@@ -34,7 +34,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   sudo reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
   
 # apps and tools stuff 
-  sudo pacman -S plasma-meta btrfs-assistant --noconfirm
+  sudo pacman -S plasma-meta gparted btrfs-assistant --noconfirm
   sudo pacman -S bash-completion nano networkmanager yt-dlp git firewalld btop rocm-smi-lib ffmpegthumbnailer fastfetch openssh xdotool most figlet devtools base-devel pacman-contrib picard --noconfirm
 # file sys stuff
   sudo pacman -S btrfs-progs kdegraphics-thumbnailers dosfstools exfat-utils ntfs-3g nilfs-utils exfatprogs ntfsprogs --noconfirm
@@ -42,6 +42,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
   sudo pacman -S adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts --noconfirm; fc-cache
 # flatpak
   flatpak install flathub org.gnome.gThumb net.davidotek.pupgui2 com.github.tchx84.Flatseal org.libreoffice.LibreOffice com.github.taiko2k.tauonmb org.videolan.VLC org.kde.krita net.davidotek.pupgui2 net.mkiol.SpeechNote net.mkiol.SpeechNote.Addon.amd org.musicbrainz.Picard
+  flatpak install flathub com.discordapp.Discord
 # start firewall
   sudo systemctl start firewalld; sudo systemctl enable firewalld
 # mounts
