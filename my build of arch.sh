@@ -98,3 +98,4 @@ done
 else
   echo "stoping"
 fi
+sudo chmod +x /etc/grub.d/10_linux && sudo grub-mkconfig -o /boot/grub/grub.cfg
