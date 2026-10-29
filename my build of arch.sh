@@ -66,7 +66,6 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     alias lsa='ls -lsAF'
     alias aliasup='source ~/.bashrc'
     alias pacman='sudo pacman'
-    #alias yak='~/.yaklinebyline << EOF TEXT='
 # olther end --------------------------------------
 export EDITOR=nano
 export VISUAL=nano
@@ -87,6 +86,7 @@ export VISUAL=nano
  # ==================================== 
  
 echo '
+# export TEXT=""
 sleep 2
 echo "$TEXT" | while read -r line; do
     xdotool type --delay 90 "$line";
