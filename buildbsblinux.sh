@@ -38,7 +38,6 @@ envision(){
     meson compile -C build-aux/
     meson install -C build-aux/
     cd ~/vrbuilding/
-    
 };
 wayvr(){
     wayvrF=~/vrbuilding/wayvr
@@ -48,7 +47,7 @@ wayvr(){
         cargo build --release --no-default-features --features=wayland,openxr,openvr,pipewire,osc,pipewire,whisper,feat-monado-metrics,as-raw-xcb-connection
         cd $wayvrF/wayvrctl
         cargo build --release
-    };  
+    };
     installwayvr(){
         cd $wayvrF
         sudo install -Dm0755 -t "/usr/bin/" "target/release/wayvr"
@@ -62,7 +61,7 @@ wayvr(){
     cd ~/vrbuilding/
 };
 fucksteamvr(){
-    jq ".power.autoLaunchSteamVROnButtonPress = false" ~/.steam/root/config/steamvr.vrsettings > /tmp/steamvr.vrsettings 
+    jq ".power.autoLaunchSteamVROnButtonPress = false" ~/.steam/root/config/steamvr.vrsettings > /tmp/steamvr.vrsettings
     mv /tmp/steamvr.vrsettings ~/.steam/root/config/steamvr.vrsettings
 };
 bsbkernal(){
@@ -79,7 +78,7 @@ building(){
     envision
     wayvr
     fucksteamvr
-    
+    bsbkernal
     cleanup
 };
 building
