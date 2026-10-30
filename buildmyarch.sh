@@ -36,21 +36,19 @@ allinstalls(){
     nilfs-utils
     exfatprogs
     ntfsprogs
+    krita
+    vlc
+    libreoffice-fresh
+    gthumb
     adobe-source-han-sans-jp-fonts
     adobe-source-han-sans-kr-fonts
   "
   flathubinlist="
-    org.gnome.gThumb
     net.davidotek.pupgui2
     com.github.tchx84.Flatseal
-    org.libreoffice.LibreOffice
     com.github.taiko2k.tauonmb
-    org.videolan.VLC
-    org.kde.krita
-    net.davidotek.pupgui2
     net.mkiol.SpeechNote
     net.mkiol.SpeechNote.Addon.amd
-    org.musicbrainz.Picard
     com.discordapp.Discord
   "
 };
@@ -126,6 +124,8 @@ runing(){
       echo 
     fi
   fc-cache
+  mkdir -p ~/.local/share/plasma/look-and-feel/xenia/ 
+  wget -qO- https://github.com/astro-cyberpaws/xenia-kde6/releases/latest/download/xenia.tar.gz | gunzip | tar xf - -C ~/.local/share/plasma/look-and-feel/xenia/
 };
 runing
 echo "stoping"
