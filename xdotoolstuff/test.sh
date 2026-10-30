@@ -43,7 +43,6 @@ countdown(){
     done
     echo "Done!"
 }
-
 xdotooltext(){
     echo "$TEXT" | while read -r line; do
         xdotool type --delay "$TEXTdelay" "$line"

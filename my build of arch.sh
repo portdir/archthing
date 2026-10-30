@@ -66,6 +66,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     alias lsa='ls -lsAF'
     alias aliasup='source ~/.bashrc'
     alias pacman='sudo pacman'
+    alias fuckgit='thedate=date && git commit -m "$thedate" && git push'
 # olther end --------------------------------------
 export EDITOR=nano
 export VISUAL=nano
@@ -78,7 +79,6 @@ export VISUAL=nano
 # funny end --------------------------------------
 " >> ~/.bashrc; source ~/.bashrc
      yay -S bandcamp-dl-git
-      
    else
      echo "no music tools"
    fi
