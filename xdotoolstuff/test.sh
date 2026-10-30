@@ -50,12 +50,11 @@ xdotooltext(){
         xdotool key Return
     done
 }
-
 cleanup(){
     echo -e "\n[STOPPING]"
     kill -- -$$ 2>/dev/null || true &
     trap - INT TERM
-    exit 130
+    exit 1
 }
 runing(){
     sleep "$HOLDtotype"
@@ -65,6 +64,6 @@ runing(){
     sleep 0.1
     cleanup
 }
-# RUN IN FOREGROUND
+
 trap cleanup INT TERM
 runing
