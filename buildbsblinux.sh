@@ -25,6 +25,9 @@ SeeDependency(){
         openvr
         vulkan-headers
         shaderc
+        jq
+        devtools
+        pacman-contrib
     "
     pacman -S --needed $dependencyvr --noconfirm
 };
@@ -35,6 +38,7 @@ envision(){
     meson compile -C build-aux/
     meson install -C build-aux/
     cd ~/vrbuilding/
+    
 }
 wayvr(){
     wayvrF=~/vrbuilding/wayvr
@@ -57,11 +61,25 @@ wayvr(){
     installwayvr
     cd ~/vrbuilding/
 };
+fucksteamvr(){
+    jq ".power.autoLaunchSteamVROnButtonPress = false" ~/.steam/root/config/steamvr.vrsettings > /tmp/steamvr.vrsettings 
+    mv /tmp/steamvr.vrsettings ~/.steam/root/config/steamvr.vrsettings
+};
+bsbkernal(){
+    pkgctl repo clone --protocol=https linux
+    cd linux
+    sed --in-place 's/pkgbase=linux/pkgbase=linux-bsb/g' PKGBUILD &
+    sed --in-place '/source=(/ { N;N;s/$/\n  https:\/\/vronlinux.org\/docs\/hardware\/bigscreen-beyond\/bigscreen-beyond-kernel.patch/;}' PKGBUILD &
+    updpkgsums
+    MAKEFLAGS="--jobs=$(nproc)" makepkg -sir --skippgpcheck
+}
 building(){
     setups
     SeeDependency
     envision
     wayvr
+    fucksteamvr
+    bsbkernal
     cleanup
 }
 building

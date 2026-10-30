@@ -63,7 +63,7 @@ sudostuff(){
   pacman -S --needed base-devel linux-headers --noconfirm
   pacman -S reflector --noconfirm
   reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
-  pacman -S --needed $pacmaninlist --noconfirm
+  pacman -S --needed  $pacmaninlist --noconfirm
   mkdir -p /mnt/mount{1,2,3,4,5,6,7}
   chown -vR $USER:$USER /mnt/mount* 
   chmod +x /etc/grub.d/10_linux
