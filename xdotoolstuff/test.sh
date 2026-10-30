@@ -21,25 +21,19 @@ SeeDependency(){
     fi
     if command -v xdotool >/dev/null 2>&1 ; then
         echo -e "xdotool installed"
-
     else
         echo "xdotool is MISSING"
         cleanup
     fi
 }
-
-
-TEXTtimer(){
+countdown(){
     TEXTwcc=$(wc -c < "$readfile")
     TEXTwcl=$(wc -l < "$readfile")
     lettertime=$((TEXTwcc * TEXTdelay))
     lettertimesec=$((lettertime / 1000))
     linetime=$((TEXTwcl * TEXTsleep))
     thetimeoutput=$((lettertimesec + linetime))
-}
-
-countdown(){
-    TEXTtimer
+    
     echo "Estimated time: ${thetimeoutput}s"
     local n=$thetimeoutput
     while [ "$n" -gt 0 ]; do
@@ -64,7 +58,6 @@ cleanup(){
     trap - INT TERM
     exit 130
 }
-
 runing(){
     sleep "$HOLDtotype"
     SeeDependency
