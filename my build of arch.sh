@@ -84,17 +84,6 @@ export VISUAL=nano
    fi
  # funny end
  # ==================================== 
- 
-echo '
-# export TEXT=""
-sleep 2
-echo "$TEXT" | while read -r line; do
-    xdotool type --delay 90 "$line";
-    sleep 1;
-    xdotool key Return;
-done
-' >> ~/.yaklinebyline
-
 else
   echo "stoping"
 fi
