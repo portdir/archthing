@@ -39,7 +39,7 @@ envision(){
     meson install -C build-aux/
     cd ~/vrbuilding/
     
-}
+};
 wayvr(){
     wayvrF=~/vrbuilding/wayvr
     buildwayvr(){
@@ -72,15 +72,15 @@ bsbkernal(){
     sed --in-place '/source=(/ { N;N;s/$/\n  https:\/\/vronlinux.org\/docs\/hardware\/bigscreen-beyond\/bigscreen-beyond-kernel.patch/;}' PKGBUILD &
     updpkgsums
     MAKEFLAGS="--jobs=$(nproc)" makepkg -sir --skippgpcheck
-}
+};
 building(){
     setups
     SeeDependency
     envision
     wayvr
     fucksteamvr
-    bsbkernal
+    
     cleanup
-}
+};
 building
 exit 1
