@@ -64,6 +64,5 @@ runing(){
     sleep 0.1
     cleanup
 }
-
 trap cleanup INT TERM
 runing

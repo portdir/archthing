@@ -3,11 +3,11 @@ setups(){
   cd ~
   mkdir -p ~/setup/
   cd ~/setup/
-  allinstalls
 };
 allinstalls(){
   pacmaninlist="
     plasma-meta
+    kwallet
     gparted
     tar
     btrfs-assistant
@@ -129,6 +129,7 @@ runing(){
   mkdir -p ~/.local/share/plasma/look-and-feel/xenia/ 
   wget -qO- https://github.com/astro-cyberpaws/xenia-kde6/releases/latest/download/xenia.tar.gz | gunzip | tar xf - -C ~/.local/share/plasma/look-and-feel/xenia/
 };
+allinstalls
 runing
 echo "stoping"
 exit 1
