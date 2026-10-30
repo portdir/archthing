@@ -9,12 +9,14 @@ allinstalls(){
   pacmaninlist="
     plasma-meta
     gparted
+    tar
     btrfs-assistant
     bash-completion
     nano
     networkmanager
     yt-dlp
     git
+    github-cli
     firewalld
     btop
     rocm-smi-lib
