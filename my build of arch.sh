@@ -66,7 +66,7 @@ if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     alias lsa='ls -lsAF'
     alias aliasup='source ~/.bashrc'
     alias pacman='sudo pacman'
-    alias fuckgit='thedate=date && git commit -m "$thedate" && git push'
+    alias fuckgit='thedate=$(date) && git commit -am "$thedate" && git push'
 # olther end --------------------------------------
 export EDITOR=nano
 export VISUAL=nano
