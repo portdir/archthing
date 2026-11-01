@@ -40,6 +40,7 @@ allinstalls(){
     ntfsprogs
     krita
     vlc
+    vlc-plugins-all
     libreoffice-fresh
     gthumb
     adobe-source-han-sans-jp-fonts
@@ -85,7 +86,7 @@ runing(){
     # v2.9
     ------------------
   "
-  echo "add the music tools [Y/N]" 
+  echo "add the funny tools [Y/N]" 
   read addfunny 
   echo -e "
     #-------------------
@@ -122,12 +123,18 @@ runing(){
           alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
       # funny end --------------------------------------
     " >> ~/.bashrc; source ~/.bashrc
-    else
-      echo 
-    fi
+    local thepwd=$(pwd);
+    mkdir -p ~/Documents/
+    cd ~/Documents/
+    git clone --recursive https://github.com/korcankaraokcu/PINCE
+    sh PINCE/install.sh
+    cd $thepwd;
+    mkdir -p ~/.local/share/plasma/look-and-feel/xenia/ 
+    wget -qO- https://github.com/astro-cyberpaws/xenia-kde6/releases/latest/download/xenia.tar.gz | gunzip | tar xf - -C ~/.local/share/plasma/look-and-feel/xenia/
+  else
+    echo 
+  fi
   fc-cache
-  mkdir -p ~/.local/share/plasma/look-and-feel/xenia/ 
-  wget -qO- https://github.com/astro-cyberpaws/xenia-kde6/releases/latest/download/xenia.tar.gz | gunzip | tar xf - -C ~/.local/share/plasma/look-and-feel/xenia/
 };
 allinstalls
 runing
