@@ -2,19 +2,15 @@
 # casts typer
 
 # Settings
-readfile="$PWD/theTEXT.sh"
+readfile="$PWD/input.sh"
 TEXTdelay="20" # in ms
 TEXTsleep="1" # in s
-HOLDtotype="2" # in s
+HOLDtotype="3" # in s
 
 thetimeoutput=$(( ($(wc -c < "$readfile") * TEXTdelay / 1000) + ($(wc -l < "$readfile") * TEXTsleep) ))
-
-# TEXT
-TEXT="$(<$readfile)"
 # Functions
 
 SeeDependency(){
-
 if [ ! -f "$readfile" ] || ! command -v xdotool &>/dev/null; then
     [ ! -f "$readfile" ] && touch "$readfile" && echo "file MISSING (created empty)" || echo "xdotool MISSING"
     cleanup
@@ -32,14 +28,14 @@ countdown(){
     echo -e"\n Done!"
 }
 xdotooltext(){
-    echo "$TEXT" | while read -r line; do
-        if [[ "$line" =~ "#" ]]; then
-        cleanup
+    while IFS= read -r line; do
+        if [[ "$line" =~ ^[[:space:]]*# ]]; then
+            cleanup
         fi
         xdotool type --delay "$TEXTdelay" "$line"
         sleep "$TEXTsleep"
         xdotool key Return
-    done
+    done < "$readfile"
 }
 cleanup(){
     echo -e "\n[STOPPING]"
@@ -52,7 +48,7 @@ runing(){
     sleep "$HOLDtotype"
     xdotooltext &
     countdown
-    sleep 0.1
+    sleep 0.2
     cleanup
 }
 trap cleanup INT TERM

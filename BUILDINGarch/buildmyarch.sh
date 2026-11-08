@@ -43,6 +43,7 @@ allinstalls(){
   exfatprogs
   ntfsprogs
   krita
+  blender
   vlc
   vlc-plugins-all
   libreoffice-fresh
@@ -99,7 +100,7 @@ did you add wifi? / are you ready to build? [Y/N]
 #-------------------
 "
   read yesno
-  if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
+  if [[ $yesno =~ ^(Y|y|yes|)$ ]]; then
     setups
     makeyay
     sudo sudostuff
@@ -148,3 +149,11 @@ allinstalls
 runing
 echo "stopping"
 exit 1
+
+
+# add later?
+# sudo pacman -S languagetool
+# systemctl start languagetool.service
+# systemctl enable languagetool.service
+
+

@@ -12,22 +12,22 @@ cleanup(){
 };
 SeeDependency(){
     dependencyvr="
-        meson
-        base-devel
-        cmake
-        libxkbcommon
-        fontconfig
-        dbus
-        alsa-lib
-        python3
-        wayland
-        dav1d
-        openvr
-        vulkan-headers
-        shaderc
-        jq
-        devtools
-        pacman-contrib
+    meson
+    base-devel
+    cmake
+    libxkbcommon
+    fontconfig
+    dbus
+    alsa-lib
+    python3
+    wayland
+    dav1d
+    openvr
+    vulkan-headers
+    shaderc
+    jq
+    devtools
+    pacman-contrib
     "
     pacman -S --needed $dependencyvr --noconfirm
 };
