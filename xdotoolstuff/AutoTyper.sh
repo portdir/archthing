@@ -2,7 +2,7 @@
 # casts typer
 
 # Settings
-readfile="$PWD/input.sh"
+readfile="$PWD/input.tcl"
 TEXTdelay="20" # in ms
 TEXTsleep="1" # in s
 HOLDtotype="3" # in s
