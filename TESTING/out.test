@@ -1,0 +1,256 @@
+7zip 26.05-1
+adobe-source-han-sans-jp-fonts 2.005-2
+adobe-source-han-sans-kr-fonts 2.005-2
+amd-ucode 20261019-1
+aurorae 6.8.2-1
+bandcamp-dl-git v0.0.17.r59.g0bf086b-1
+base 3-3
+base-devel 1-2
+bash-completion 2.18.0-1
+bash-language-server 5.6.0-1
+bind 9.20.30-1
+blender 17:5.2.3-5
+bluedevil 1:6.8.2-1
+bluez 5.87-2
+bluez-utils 5.87-2
+breeze 6.8.2-1
+breeze-cursors 6.8.2-1
+breeze-gtk 6.8.2-1
+breeze-plymouth 6.8.2-1
+btop 1.4.7-1
+btrfs-assistant 3.0.0-1
+btrfs-progs 7.3-1
+carla 2.5.10-4
+chromium 156.0.8078.79-1
+ctags 1:6.2.1-1
+cups 2:2.4.20-1
+cups-pk-helper 0.2.7-2
+db 6.2.32-4
+devtools 1:1.5.3-1
+discover 6.8.2-1
+dolphin 26.08.2-1
+dosfstools 4.2-5
+drkonqi 6.8.2-1
+efibootmgr 18-4
+exfatprogs 1.4.3-1
+fastfetch 2.70.0-1
+ffmpegthumbnailer 2.3.1-1
+figlet 2.2.5-6
+firewalld 2.5.2-1
+flatpak-kcm 6.8.2-1
+fontforge 20251009-5
+gale-bin 1.23.1-1
+ghostscript 10.08.0-1
+git 2.56.0-1
+github-cli 2.102.1-1
+gparted 1.8.1-2
+grub 2:2.16-1
+gst-plugin-pipewire 1:1.6.10-1
+gthumb 3.12.12-1
+guitarix 0.47.0-5
+gxplugins-lv2-git r160.19df03e-1
+htop 3.5.3-1
+java-atk-wrapper-common 0.44.0-2
+java-environment-common 3-6
+java-runtime-common 3-6
+jdk-openjdk 27.0.1.0.3.u1-1
+kactivitymanagerd 6.8.2-1
+kate 26.08.2-1
+kde-cli-tools 6.8.2-1
+kde-gtk-config 6.8.2-1
+kdecoration 6.8.2-1
+kdegraphics-thumbnailers 26.08.2-1
+kdeplasma-addons 6.8.2-1
+kglobalacceld 6.8.2-1
+kinfocenter 6.8.2-1
+kmenuedit 6.8.2-1
+knighttime 6.8.2-1
+konsole 26.08.2-1
+kpipewire 6.8.2-1
+krdc 26.08.2-1
+krdp 6.8.2-1
+krita 6.0.4.1-3
+kscreen 6.8.2-1
+kscreenlocker 6.8.2-1
+ksshaskpass 6.8.2-1
+ksystemstats 6.8.2-1
+kup 6.8.2-1
+kwallet-pam 6.8.2-1
+kwalletmanager 26.08.2-1
+kwayland 6.8.2-1
+kwin 6.8.2-2
+kwrited 6.8.2-1
+layer-shell-qt 6.8.2-1
+lib32-attr 2.6.0-1
+lib32-glu 9.0.3-2
+lib32-gtk3 1:3.24.52-2
+lib32-lcms2 2.17-1
+lib32-libcups 2.4.20-1
+lib32-libpulse 17.0+r98+gb096704c0-1
+lib32-libsm 1.2.6-1
+lib32-libxcomposite 0.4.7-1
+lib32-libxcursor 1.2.3-1
+lib32-libxdamage 1.1.7-1
+lib32-libxi 1.8.3-1
+lib32-libxmu 1.3.1-1
+lib32-libxrandr 1.5.5-1
+lib32-ocl-icd 2.3.5-1
+libgphoto2 2.5.34-1
+libkscreen 6.8.2-1
+libksysguard 6.8.2-1
+libplasma 6.8.2-1
+libpulse 17.0+r134+g77d25a1e6-1
+libreoffice-fresh 26.8.2-1
+libxml2-legacy 2.13.9-2
+linux 7.2.14.arch1-1
+linux-bsb 7.2.11.arch1-1
+linux-bsb-headers 7.2.11.arch1-1
+linux-firmware 20261019-1
+linuxconsole 1.8.1-3
+lsp-plugins 1.2.37-1
+man-db 2.13.1-2
+marksman 20260208-3
+meson 1.12.1-2
+milou 6.8.2-1
+mingw-w64-gcc 16.2.0-2
+mixxx 2.5.6-7
+mkinitcpio 42.2-1
+most 5.2.0-3
+nano 9.3-1
+network-manager-applet 1.36.0-2
+networkmanager 1.58.1-3
+nilfs-utils 2.3.1-1
+noise-suppression-for-voice-git 1.10.r0.g9c4e5c2-1
+noto-fonts 1:2026.11.01-1
+noto-fonts-cjk 20240730-1
+noto-fonts-emoji 1:20260924-1
+ntfs-3g 2026.9.28-1
+ntfsprogs 2026.9.28-1
+obs-studio 33.0.1-1
+ocean-sound-theme 6.8.2-1
+opencl-headers 2:2026.05.29-1
+oxygen 6.8.2-1
+oxygen-cursors 6.8.2-1
+oxygen-sounds 6.8.2-1
+pacman-contrib 1.13.1-1
+picard 3.0.4-1
+pipewire 1:1.6.10-1
+pipewire-alsa 1:1.6.10-1
+pipewire-jack 1:1.6.10-1
+pipewire-pulse 1:1.6.10-1
+plasma-activities 6.8.2-1
+plasma-activities-stats 6.8.2-1
+plasma-bigscreen 6.8.2-1
+plasma-browser-integration 6.8.2-1
+plasma-desktop 6.8.2-1
+plasma-disks 6.8.2-1
+plasma-firewall 6.8.2-1
+plasma-integration 6.8.2-1
+plasma-keyboard 6.8.2-1
+plasma-login-manager 6.8.2-1
+plasma-meta 6.8-1
+plasma-nm 6.8.2-1
+plasma-pa 6.8.2-1
+plasma-sdk 6.8.2-1
+plasma-systemmonitor 6.8.2-1
+plasma-thunderbolt 6.8.2-1
+plasma-vault 6.8.2-1
+plasma-welcome 6.8.2-1
+plasma-workspace 6.8.2-1
+plasma-workspace-wallpapers 6.8.2-1
+plasma5support 6.8.2-1
+plymouth-kcm 6.8.2-1
+pnpm 12.17.0-1
+polkit-kde-agent 6.8.2-1
+powerdevil 6.8.2-1
+print-manager 1:6.8.2-1
+proton-rtsp-bin 4:11.0_20260609-4
+proton-vpn-cli 1.0.5-1
+proton-vpn-gtk-app 4.18.8-1
+python-pip 26.2.2-1
+qqc2-breeze-style 6.8.2-1
+raysession 0.18.0-1
+reflector 2023-5
+rocm-smi-lib 7.2.0-2
+rust 1:1.99.1-1
+samba 2:4.25.1-1
+sane 1.4.0-4
+sddm-kcm 6.8.2-1
+sharutils 4.15.2-6
+smartmontools 7.5-2
+snapper 0.13.2-1
+spectacle 1:6.8.2-1
+speedtest-cli 2.1.3-11
+squeezelite 2.0.0.1524-1
+steam 1.0.0.87-3
+sudo 1.9.17.p2-6
+system-config-printer 1.5.18-7
+systemsettings 6.8.2-1
+tldr 3.4.4-1
+ttf-vista-fonts 1-12
+union 6.8.2-1
+unrar 1:7.3.2-1
+unzip 6.0-23
+vim 9.2.1178-1
+vkd3d 2.0-1
+vlc 3.0.24-1
+vlc-plugins-all 3.0.24-1
+vulkan-radeon 1:26.2.6-1
+vulkan-utility-libraries 1.4.363.0-1
+wget 1.25.0-6
+wine 11.21-1
+wireplumber 0.5.18-1
+wireshark-qt 4.7.4-1
+wpa_supplicant 2:2.12-1
+xdg-desktop-portal-kde 6.8.2-1
+xdg-utils 1.2.1-2
+xdotool 4.20260303.1-1
+xf86-video-amdgpu 25.0.0-1
+xf86-video-ati 1:22.0.0-3
+yay 13.1.0-1
+yay-debug 13.1.0-1
+yt-dlp 2026.10.26-1
+
+-----------------------------
+
+plasma-meta
+kwallet
+gparted
+tar
+wine
+btrfs-assistant
+bash-completion
+nano
+networkmanager
+yt-dlp
+git
+github-cli
+firewalld
+btop
+rocm-smi-lib
+ffmpegthumbnailer
+fastfetch
+openssh
+xdotool
+most
+figlet
+devtools
+base-devel
+pacman-contrib
+picard
+btrfs-progs
+kdegraphics-thumbnailers
+dosfstools
+exfat-utils
+ntfs-3g
+nilfs-utils
+exfatprogs
+ntfsprogs
+krita
+vlc
+vlc-plugins-all
+libreoffice-fresh
+gthumb
+adobe-source-han-sans-jp-fonts
+adobe-source-han-sans-kr-fonts
+7zip
