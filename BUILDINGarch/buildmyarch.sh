@@ -114,7 +114,7 @@ did you add wifi? / are you ready to build? [Y/N]
   alias aliasup='source ~/.bashrc'
   alias pacman='sudo pacman'
   alias installed='pacman -Qqent'
-  alias fuckgit='thedate=\$(date) && git commit -am "\$thedate" && git push'
+  alias fuckgit='thedate=\$(date) && git commit -am "\$thedate"'
 # olther end --------------------------------------
   export EDITOR=nano
   export VISUAL=nano
