@@ -1,4 +1,3 @@
-#
 en # enable
 conf t # config terminal
 no ip domain-lookup # on PT
@@ -9,7 +8,7 @@ int f0/0/0 # set one type of interface
 int range s0/?-?, f0/?-?, g0/?-? # to do range
 
 copy running-config startup-config # save
-Copy run start # also save
+Copy run start # save
 
 end # Returns to privileged EXEC mode.
 exit #  go back a mode
