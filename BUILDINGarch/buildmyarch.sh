@@ -6,11 +6,16 @@ setups(){
 };
 allinstalls(){
   pacmaninlist="
+  rust
+  speedtest-cli
   plasma-meta
   kwallet
   gparted
   tar
+  kate
   btrfs-assistant
+  snapper
+  btrfs-progs
   bash-completion
   nano
   networkmanager
@@ -30,7 +35,6 @@ allinstalls(){
   base-devel
   pacman-contrib
   picard
-  btrfs-progs
   kdegraphics-thumbnailers
   dosfstools
   exfat-utils
@@ -82,7 +86,7 @@ makeyay(){
 runing(){
   echo "
 ------------------
-# casts / Alice- profile updater for arch
+# casts / Alice - profile updater for arch
 # v2.9
 ------------------
   "
@@ -109,6 +113,7 @@ did you add wifi? / are you ready to build? [Y/N]
   alias lsa='ls -lsAF'
   alias aliasup='source ~/.bashrc'
   alias pacman='sudo pacman'
+  alias installed='pacman -Qqent'
   alias fuckgit='thedate=\$(date) && git commit -am "\$thedate" && git push'
 # olther end --------------------------------------
   export EDITOR=nano
@@ -119,14 +124,15 @@ EOF
   fi
   if [[ $addfunny =~ ^(Y|y|yes)$ ]];
     yay -S bandcamp-dl-git
-
-cat << EOF > ~/.bashrc
+    pacman -S --noconfirm mixxx
+    cat << EOF > ~/.bashrc
 # funny     --------------------------------------
   alias Bsteal='bandcamp-dl -r -e --base-dir ./'
   alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
 # funny end --------------------------------------
 EOF
     source ~/.bashrc
+
     local thepwd=$(pwd);
     mkdir -p ~/Documents/
     cd ~/Documents/
