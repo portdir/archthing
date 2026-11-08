@@ -45,6 +45,7 @@ cleanup(){
 }
 runing(){
     SeeDependency &
+    echo "time $HOLDtotype till start"
     sleep "$HOLDtotype"
     xdotooltext &
     countdown

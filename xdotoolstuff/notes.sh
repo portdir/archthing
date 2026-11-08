@@ -1,3 +1,12 @@
+en
+conf t
+no ip domain-lookup
+
+
+copy run start
+
+######
+
 en # enable
 conf t # config terminal
 no ip domain-lookup # on PT
@@ -15,5 +24,11 @@ exit #  go back a mode
 
 banner motd $ good users can git in $ # do for all of them
 copy startup-config running-config # go back a conf
+# all the same
+copy running-config startup-config
+copy run start
+write memory
+wr
+#
 reload # to reset a cisco thing without power off and on
 
