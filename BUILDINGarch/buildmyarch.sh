@@ -6,53 +6,53 @@ setups(){
 };
 allinstalls(){
   pacmaninlist="
-    plasma-meta
-    kwallet
-    gparted
-    tar
-    btrfs-assistant
-    bash-completion
-    nano
-    networkmanager
-    yt-dlp
-    git
-    github-cli
-    firewalld
-    btop
-    rocm-smi-lib
-    ffmpegthumbnailer
-    fastfetch
-    openssh
-    xdotool
-    most
-    figlet
-    devtools
-    base-devel
-    pacman-contrib
-    picard
-    btrfs-progs
-    kdegraphics-thumbnailers
-    dosfstools
-    exfat-utils
-    ntfs-3g
-    nilfs-utils
-    exfatprogs
-    ntfsprogs
-    krita
-    vlc
-    vlc-plugins-all
-    libreoffice-fresh
-    gthumb
-    adobe-source-han-sans-jp-fonts
-    adobe-source-han-sans-kr-fonts
+  plasma-meta
+  kwallet
+  gparted
+  tar
+  btrfs-assistant
+  bash-completion
+  nano
+  networkmanager
+  yt-dlp
+  git
+  github-cli
+  firewalld
+  btop
+  rocm-smi-lib
+  ffmpegthumbnailer
+  fastfetch
+  openssh
+  xdotool
+  most
+  figlet
+  devtools
+  base-devel
+  pacman-contrib
+  picard
+  btrfs-progs
+  kdegraphics-thumbnailers
+  dosfstools
+  exfat-utils
+  ntfs-3g
+  nilfs-utils
+  exfatprogs
+  ntfsprogs
+  krita
+  vlc
+  vlc-plugins-all
+  libreoffice-fresh
+  gthumb
+  adobe-source-han-sans-jp-fonts
+  adobe-source-han-sans-kr-fonts
   "
   flathubinlist="
-    net.davidotek.pupgui2
-    com.github.tchx84.Flatseal
-    com.github.taiko2k.tauonmb
-    net.mkiol.SpeechNote
-    net.mkiol.SpeechNote.Addon.amd
-    com.discordapp.Discord
+  net.davidotek.pupgui2
+  com.github.tchx84.Flatseal
+  com.github.taiko2k.tauonmb
+  net.mkiol.SpeechNote
+  net.mkiol.SpeechNote.Addon.amd
+  com.discordapp.Discord
   "
 };
 network(){
@@ -81,19 +81,19 @@ makeyay(){
 };
 runing(){
   echo "
-    ------------------
-    # casts / Alice- profile updater for arch 
-    # v2.9
-    ------------------
+------------------
+# casts / Alice- profile updater for arch
+# v2.9
+------------------
   "
   echo "add the funny tools [Y/N]" 
   read addfunny 
   echo -e "
-    #-------------------
-    hello setup NM and add wifi now
-    did you add wifi? / are you ready to build? [Y/N]
-    #-------------------
-  "
+#-------------------
+hello setup NM and add wifi now
+did you add wifi? / are you ready to build? [Y/N]
+#-------------------
+"
   read yesno
   if [[ $yesno =~ ^(Y|y|yes)$ ]]; then
     setups
@@ -101,28 +101,32 @@ runing(){
     sudo sudostuff
     flatpak --user install flathub $flathubinlist
     yay -S unrar
-    echo -e "
-      # things     --------------------------------------
-        alias hello='figlet UWU HELLOWO'
-        alias grep='grep --color=auto'
-        alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-        alias lsa='ls -lsAF'
-        alias aliasup='source ~/.bashrc'
-        alias pacman='sudo pacman'
-        alias fuckgit='thedate=\$(date) && git commit -am \"\$thedate\" && git push'
-      # olther end --------------------------------------
-        export EDITOR=nano
-        export VISUAL=nano
-    " > ~/.bashrc; source ~/.bashrc
+    cat << EOF > ~/.bashrc
+# things --------------------------------------
+  alias hello='figlet UWU HELLOWO'
+  alias grep='grep --color=auto'
+  alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+  alias lsa='ls -lsAF'
+  alias aliasup='source ~/.bashrc'
+  alias pacman='sudo pacman'
+  alias fuckgit='thedate=\$(date) && git commit -am "\$thedate" && git push'
+# olther end --------------------------------------
+  export EDITOR=nano
+  export VISUAL=nano
+EOF
+
+    source ~/.bashrc
   fi
-  if [[ $addfunny =~ ^(Y|y|yes)$ ]]; then
+  if [[ $addfunny =~ ^(Y|y|yes)$ ]];
     yay -S bandcamp-dl-git
-    echo "
-      # funny     --------------------------------------
-          alias Bsteal='bandcamp-dl -r -e --base-dir ./'
-          alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
-      # funny end --------------------------------------
-    " >> ~/.bashrc; source ~/.bashrc
+
+cat << EOF > ~/.bashrc
+# funny     --------------------------------------
+  alias Bsteal='bandcamp-dl -r -e --base-dir ./'
+  alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
+# funny end --------------------------------------
+EOF
+    source ~/.bashrc
     local thepwd=$(pwd);
     mkdir -p ~/Documents/
     cd ~/Documents/
@@ -131,12 +135,10 @@ runing(){
     cd $thepwd;
     mkdir -p ~/.local/share/plasma/look-and-feel/xenia/ 
     wget -qO- https://github.com/astro-cyberpaws/xenia-kde6/releases/latest/download/xenia.tar.gz | gunzip | tar xf - -C ~/.local/share/plasma/look-and-feel/xenia/
-  else
-    echo 
   fi
   fc-cache
 };
 allinstalls
 runing
-echo "stoping"
+echo "stopping"
 exit 1
