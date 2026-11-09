@@ -1,9 +1,9 @@
 #!/bin/bash
 setups(){
-    cd ~
+    cd ~ || return
     mkdir -p ~/vrbuilding/
     rm -rf ~/vrbuilding/*
-    cd ~/vrbuilding/
+    cd ~/vrbuilding/ || return
 };
 cleanup(){
     echo -e "\n[STOPPING]"
@@ -29,27 +29,27 @@ SeeDependency(){
     devtools
     pacman-contrib
     "
-    pacman -S --needed $dependencyvr --noconfirm
+    pacman -S --needed "$dependencyvr" --noconfirm
 };
 envision(){
     git clone https://gitlab.com/gabmus/envision.git
-    cd envision
+    cd envision || return
     meson setup build-aux/ 
     meson compile -C build-aux/
     meson install -C build-aux/
-    cd ~/vrbuilding/
+    cd ~/vrbuilding/ || exit 1
 };
 wayvr(){
     wayvrF=~/vrbuilding/wayvr
     buildwayvr(){
         git clone https://github.com/wayvr-org/wayvr.git
-        cd $wayvrF
+        cd "$wayvrF" || return
         cargo build --release --no-default-features --features=wayland,openxr,openvr,pipewire,osc,pipewire,whisper,feat-monado-metrics,as-raw-xcb-connection
-        cd $wayvrF/wayvrctl
+        cd "$wayvrF"/wayvrctl || return
         cargo build --release
     };
     installwayvr(){
-        cd $wayvrF
+        cd "$wayvrF" || return
         sudo install -Dm0755 -t "/usr/bin/" "target/release/wayvr"
         sudo install -Dm0755 -t "/usr/bin/" "target/release/wayvrctl"
         sudo install -Dm0644 -t "/usr/share/applications/" "wayvr/wayvr.desktop"
@@ -58,15 +58,15 @@ wayvr(){
     };
     buildwayvr
     installwayvr
-    cd ~/vrbuilding/
+    cd ~/vrbuilding/ || return
 };
 fucksteamvr(){
     jq ".power.autoLaunchSteamVROnButtonPress = false" ~/.steam/root/config/steamvr.vrsettings > /tmp/steamvr.vrsettings
-    mv /tmp/steamvr.vrsettings ~/.steam/root/config/steamvr.vrsettings
+    mv "/tmp/steamvr.vrsettings" "$HOME/.steam/root/config/steamvr.vrsettings"
 };
 bsbkernal(){
     pkgctl repo clone --protocol=https linux
-    cd linux
+    cd linux || return
     sed --in-place 's/pkgbase=linux/pkgbase=linux-bsb/g' PKGBUILD &
     sed --in-place '/source=(/ { N;N;s/$/\n  https:\/\/vronlinux.org\/docs\/hardware\/bigscreen-beyond\/bigscreen-beyond-kernel.patch/;}' PKGBUILD &
     updpkgsums
@@ -79,7 +79,7 @@ building(){
     wayvr
     fucksteamvr
     bsbkernal
-    cleanup
 };
 building
-exit 1
+
+cleanup

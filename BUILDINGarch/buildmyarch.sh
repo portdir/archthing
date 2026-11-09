@@ -1,9 +1,10 @@
 #!/bin/bash
 setups(){
-  cd ~
+  cd "$HOME" || return
   mkdir -p ~/setup/
-  cd ~/setup/
+  cd "$HOME"/setup/ || return
 };
+
 allinstalls(){
   pacmaninlist="
   rust
@@ -50,6 +51,8 @@ allinstalls(){
   gthumb
   adobe-source-han-sans-jp-fonts
   adobe-source-han-sans-kr-fonts
+  languagetool
+  hunspell-en_us
   "
   flathubinlist="
   net.davidotek.pupgui2
@@ -63,26 +66,28 @@ allinstalls(){
 network(){
   pacman -Syu --noconfirm
   ntpdata 0.pool.ntp.org 
-  systemctl start firewalld
-  systemctl enable firewalld
 };
 sudostuff(){
   network
   pacman -S --needed base-devel linux-headers --noconfirm
   pacman -S reflector --noconfirm
   reflector -c US -l 10 -p https --save /etc/pacman.d/mirrorlist
-  pacman -S --needed  $pacmaninlist --noconfirm
+  pacman -S --needed  "$pacmaninlist" --noconfirm
+  systemctl start languagetool.service
+  systemctl enable languagetool.service
+  systemctl start firewalld
+  systemctl enable firewalld
   mkdir -p /mnt/mount{1,2,3,4,5,6,7}
-  chown -vR $USER:$USER /mnt/mount* 
+  chown -vR "$USER":"$USER" /mnt/mount*
   chmod +x /etc/grub.d/10_linux
   grub-mkconfig -o /boot/grub/grub.cfg
 };
 makeyay(){
   git clone https://aur.archlinux.org/yay.git
-  cd yay
-  makepkg -si 
-  cd ..
-  rm -rf yay/ 
+  cd "$HOME"/setup/yay || return
+  makepkg -si
+  cd "$HOME"/setup || return
+  rm -rf "$HOME"/setup/yay
 };
 runing(){
   echo "
@@ -92,68 +97,51 @@ runing(){
 ------------------
   "
   echo "add the funny tools [Y/N]" 
-  read addfunny 
+  read -r addfunny
   echo -e "
 #-------------------
 hello setup NM and add wifi now
 did you add wifi? / are you ready to build? [Y/N]
 #-------------------
 "
-  read yesno
+  read -r yesno
   if [[ $yesno =~ ^(Y|y|yes|)$ ]]; then
     setups
     makeyay
-    sudo sudostuff
-    flatpak --user install flathub $flathubinlist
-    yay -S unrar
-    cat << EOF > ~/.bashrc
-# things --------------------------------------
-  alias hello='figlet UWU HELLOWO'
-  alias grep='grep --color=auto'
-  alias grubup='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-  alias lsa='ls -lsAF'
-  alias aliasup='source ~/.bashrc'
-  alias pacman='sudo pacman'
-  alias installed='pacman -Qqent'
-  alias fuckgit='thedate=\$(date) && git commit -am "\$thedate"'
-# olther end --------------------------------------
-  export EDITOR=nano
-  export VISUAL=nano
-EOF
+    sudostuff
+    flatpak --user install flathub "$flathubinlist"
 
-    source ~/.bashrc
+    touch "$HOME"/.bashrc
+    cp -f "$PWD"/.bashrc "$HOME"/.bashrc
+    yay -S unrar
+
   fi
-  if [[ $addfunny =~ ^(Y|y|yes)$ ]];
+  if [[ $addfunny =~ ^(Y|y|yes|)$ ]]; then
     yay -S bandcamp-dl-git
     pacman -S --noconfirm mixxx
-    cat << EOF > ~/.bashrc
+    cat << EOF > "$HOME"/.bashrc
 # funny     --------------------------------------
   alias Bsteal='bandcamp-dl -r -e --base-dir ./'
   alias Ysteal='yt-dlp -x --embed-thumbnail --embed-metadata --cookies-from-browser firefox --audio-format mp3'
 # funny end --------------------------------------
 EOF
-    source ~/.bashrc
-
-    local thepwd=$(pwd);
-    mkdir -p ~/Documents/
-    cd ~/Documents/
+    # PINCE
+    cd "$HOME"/setup || return
     git clone --recursive https://github.com/korcankaraokcu/PINCE
-    sh PINCE/install.sh
-    cd $thepwd;
-    mkdir -p ~/.local/share/plasma/look-and-feel/xenia/ 
-    wget -qO- https://github.com/astro-cyberpaws/xenia-kde6/releases/latest/download/xenia.tar.gz | gunzip | tar xf - -C ~/.local/share/plasma/look-and-feel/xenia/
+    sh "$HOME"/setup/PINCE/install.sh
+    cd "$HOME"/setup || return
+    # silly xenia
+    mkdir -p "$HOME"/.local/share/plasma/look-and-feel/xenia/
+    wget -qO- https://github.com/astro-cyberpaws/xenia-kde6/releases/latest/download/xenia.tar.gz | gunzip | tar xf - -C "$HOME"/.local/share/plasma/look-and-feel/xenia/
   fi
   fc-cache
+  $(dirname "${BASH_SOURCE[0]}") "$HOME"/.bashrc
 };
+
 allinstalls
 runing
+
 echo "stopping"
 exit 1
-
-
-# add later?
-# sudo pacman -S languagetool
-# systemctl start languagetool.service
-# systemctl enable languagetool.service
 
 
